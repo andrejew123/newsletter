@@ -1,11 +1,11 @@
 # HOWTO
 
-## Install on a local machine
+### Install on a local machine
 
  1. Clone repository.
     ```
     cd <projects_folder>
-    git clone 
+    git clone https://github.com/andrejew123/newsletter.git
     ```
  2. Create virtualenv and install requirements.
     ```
@@ -14,7 +14,7 @@
     cd newsletter
     pip install -r requirements.txt
     ```
-#### Setup for ChromeDriver
+### Setup for ChromeDriver
 
  1. Download [ChromeDriver](http://chromedriver.chromium.org/downloads). (chrome-driver version should be compatible 
     with Chrome version) and extract from zip
@@ -33,7 +33,25 @@
     ```
     
 ### Run
-```
-    cd newsletter
+ 1. Create run_test.sh file in newsletter folder
+ 2. Add there code as below where BASE_URL should be testing environment
+    ```
+    #!/usr/bin/env bash
+
+    export BASE_URL='http://system-under-testing/'
+
+    behave -k -t runThis
+
+    ```
+ 2. Add executive permission for this script
+
+    ```
+    sudo chmod +x run_test.sh
+
+    ```
+
+ 3. Run tests
+
+    ```
     ./run_test.sh
-```
+    ```
