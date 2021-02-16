@@ -2,7 +2,6 @@
 
 Feature: Subscription to newsletter
 
-    @runThis
     Scenario Outline: User has is able to subscribe to newsletter
         Given I am on newsletter page
         When I fill fields with email

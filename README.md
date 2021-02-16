@@ -6,12 +6,12 @@
     ```
     cd <projects_folder>
     git clone https://github.com/andrejew123/newsletter.git
+    cd newsletter
     ```
  2. Create virtualenv and install requirements.
     ```
     python3 -m venv venv
     source venv/bin/activate
-    cd newsletter
     pip install -r requirements.txt
     ```
 ### Setup for ChromeDriver
@@ -27,10 +27,6 @@
     ```
     export PATH=$PATH:/usr/bin
     ```
- 4. Add URL of system under testing to run_test.sh (if it's not already set).
-    ```
-    export BASE_URL='http://qa-recruitment-newsletter.s3-website-eu-west-1.amazonaws.com/'
-    ```
     
 ### Run
  1. Create run_test.sh file in newsletter folder
@@ -38,11 +34,13 @@
     ```
     #!/usr/bin/env bash
 
-    export BASE_URL='http://system-under-testing/'
+    export BASE_URL='http://qa-recruitment-newsletter.s3-website-eu-west-1.amazonaws.com/'
 
-    behave -k -t runThis
+    behave --tags=-skip
 
     ```
+    "-skip"  will skip scenarios with tag @skip which are for further development
+    
  2. Add executive permission for this script
 
     ```
